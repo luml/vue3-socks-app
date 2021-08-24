@@ -17,11 +17,7 @@
       <option>2</option>
       <option>1</option>
     </select> -->
-    <base-select
-        :options="rates"
-        v-model="rating"
-        label="Rating"
-    />
+    <base-select :options="rates" v-model="rating" label="Rating" />
 
     <!-- solution -->
     <!-- <label for="recommend">Would you recommend this product?</label>
@@ -52,14 +48,15 @@ export default {
   data() {
     return {
       name: "",
+      name1: "",
       review: "",
       rating: null,
-      rates: [5,4,3,2,1],
+      rates: [5, 4, 3, 2, 1],
       // solution
       recommend: null,
       recommends: ["Yes", "No"],
       // solution
-      Submit: ''
+      Submit: "",
     };
   },
   setup() {
@@ -86,6 +83,13 @@ export default {
       this.name = "";
       this.review = "";
       this.rating = null;
+    },
+    isRequired(value) {
+      if (value && value.trim()) {
+        return true;
+      }
+
+      return "This is required";
     },
   },
 };

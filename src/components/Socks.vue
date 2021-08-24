@@ -35,16 +35,19 @@
   </div>
   <review-list v-if="reviews.length" :reviews="reviews"></review-list>
   <review-form @review-submitted="addReview"></review-form>
+  <base-vee-input></base-vee-input>
 </template>
 
 <script>
 import ReviewForm from "./ReviewForm.vue";
 import ReviewList from "./ReviewList.vue";
+import BaseVeeInput from "./BaseVeeInput.vue";
 export default {
   name: "Socks",
   components: {
     ReviewForm,
     ReviewList,
+    BaseVeeInput
   },
   props: {
     premium: {
