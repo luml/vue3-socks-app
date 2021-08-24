@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-  <review-list v-if="reviews.length > 0" :reviews="reviews"></review-list>
+  <review-list v-if="reviews.length" :reviews="reviews"></review-list>
   <review-form @review-submitted="addReview"></review-form>
 </template>
 

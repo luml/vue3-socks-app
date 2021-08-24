@@ -54,7 +54,7 @@ export default {
         name: this.name,
         review: this.review,
         rating: this.rating,
-        recommend :this.recommend,
+        recommend: this.recommend,
       };
       this.$emit("review-submitted", productReview);
       this.name = "";
