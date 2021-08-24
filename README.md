@@ -22,3 +22,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### See [resouces](https://github.com/Code-Pop/Vue-3-Forms/blob/l9-end/src/views/SimpleForm.vue)

@@ -1,39 +1,65 @@
 <template>
   <form class="review-form" @submit.prevent="onSubmit">
     <h3>Leave a review</h3>
-    <label for="name">Name:</label>
-    <input id="name" v-model="name" />
+
+    <!-- <label for="name">Name:</label> -->
+    <!-- <input id="name" v-model="name" /> -->
+    <BaseInput v-model="name" label="Name" type="text" />
+
     <label for="review">Review:</label>
-    <textarea id="review" v-model="review"></textarea>
-    <label for="rating">Rating:</label>
+    <textarea id="review" placeholder="Anything" v-model="review"></textarea>
+
+    <!-- <label for="rating">Rating:</label>
     <select id="rating" v-model.number="rating">
       <option>5</option>
       <option>4</option>
       <option>3</option>
       <option>2</option>
       <option>1</option>
-    </select>
+    </select> -->
+    <base-select
+        :options="rates"
+        v-model="rating"
+        label="Rating"
+    />
+
     <!-- solution -->
-    <label for="recommend">Would you recommend this product?</label>
+    <!-- <label for="recommend">Would you recommend this product?</label>
     <select id="recommend" v-model="recommend">
       <option>Yes</option>
       <option>No</option>
-    </select>
+    </select> -->
+    <BaseSelect
+      :options="recommends"
+      v-model="recommend"
+      label="Would you recommend this product?"
+    />
+
     <!-- solution -->
-    <input class="button" type="submit" value="Submit" />
+    <!-- <input class="button" type="submit" value="Submit" /> -->
+    <BaseInput v-model="Submit" label="Submit" type="submit" />
   </form>
 </template>
 
 <script>
+import BaseInput from "@/components/BaseInput.vue";
+import BaseSelect from "@/components/BaseSelect.vue";
 export default {
+  components: {
+    BaseInput,
+    BaseSelect,
+  },
   data() {
     return {
       name: "",
       review: "",
       rating: null,
+      rates: [5,4,3,2,1],
       // solution
       recommend: null,
+      recommends: ["Yes", "No"],
       // solution
+      Submit: ''
     };
   },
   setup() {
