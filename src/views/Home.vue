@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <div class="nav-bar"></div>
+  <div class="cart">Cart({{ cart.length }})</div>
+  <socks :premium="premium" @add-to-cart="updateCart"></socks>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import Socks from "@/components/Socks.vue";
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    Socks,
   },
+  data() {
+    return {
+      cart: [],
+      premium: true
+    }
+  },
+  methods: {
+    updateCart(id) {
+      this.cart.push(id)
+    }
+  }
 };
 </script>
