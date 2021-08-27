@@ -6,7 +6,7 @@
       v-model="name"
       label="Name"
       type="text"
-      :error="'This input has error'"
+      error="This input has error"
     />
     <label for="review">Review:</label>
     <textarea id="review" placeholder="Anything" v-model="review"></textarea>
