@@ -34,17 +34,36 @@
     <!-- solution -->
     <!-- <input class="button" type="submit" value="Submit" /> -->
     <BaseInput v-model="Submit" label="Submit" type="submit" />
+
+    <!-- other extra base -->
+    <h3>Extras</h3>
+    <div>
+      <BaseCheckbox
+        v-model="event.extras.catering"
+        label="Catering"
+      ></BaseCheckbox>
+    </div>
+    <div>
+      <BaseCheckbox
+        v-model="event.extras.music"
+        label="Live Music"
+      ></BaseCheckbox>
+    </div>
+
+    <h3>Are Pets allowed ?</h3>
+    <div>
+      <BaseRadioGroup
+        v-model="event.pets"
+        name="pets"
+        :options="petOptions"
+        vertical
+      ></BaseRadioGroup>
+    </div>
   </form>
 </template>
 
 <script>
-import BaseInput from "@/components/BaseInput.vue";
-import BaseSelect from "@/components/BaseSelect.vue";
 export default {
-  components: {
-    BaseInput,
-    BaseSelect,
-  },
   data() {
     return {
       name: "",
@@ -57,6 +76,22 @@ export default {
       recommends: ["Yes", "No"],
       // solution
       Submit: "",
+      // event for from data
+      event: {
+        category: "",
+        title: "",
+        description: "",
+        location: "",
+        pets: 1,
+        extras: {
+          catering: false,
+          music: false,
+        },
+      },
+      petOptions: [
+        { label: "yes", value: 1 },
+        { label: "No", value: 0 },
+      ],
     };
   },
   setup() {
@@ -95,5 +130,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

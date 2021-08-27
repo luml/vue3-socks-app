@@ -14,13 +14,13 @@ export default {
   data() {
     return {
       cart: [],
-      premium: true
-    }
+      premium: true,
+    };
   },
   methods: {
     updateCart(id) {
-      this.cart.push(id)
-    }
-  }
+      this.cart.push(id);
+    },
+  },
 };
 </script>

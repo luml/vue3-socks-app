@@ -35,19 +35,19 @@
   </div>
   <review-list v-if="reviews.length" :reviews="reviews"></review-list>
   <review-form @review-submitted="addReview"></review-form>
-  <base-vee-input></base-vee-input>
+  <!-- <base-vee-input></base-vee-input> -->
 </template>
 
 <script>
 import ReviewForm from "./ReviewForm.vue";
 import ReviewList from "./ReviewList.vue";
-import BaseVeeInput from "./BaseVeeInput.vue";
+// import BaseVeeInput from "./BaseVeeInput.vue";
 export default {
   name: "Socks",
   components: {
     ReviewForm,
     ReviewList,
-    BaseVeeInput
+    // BaseVeeInput
   },
   props: {
     premium: {
@@ -117,5 +117,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
+<style scoped></style>
