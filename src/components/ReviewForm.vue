@@ -2,64 +2,55 @@
   <form class="review-form" @submit.prevent="onSubmit">
     <h3>Leave a review</h3>
 
-    <!-- <label for="name">Name:</label> -->
-    <!-- <input id="name" v-model="name" /> -->
-    <BaseInput v-model="name" label="Name" type="text" />
-
+    <BaseInput
+      v-model="name"
+      label="Name"
+      type="text"
+      :error="'This input has error'"
+    />
     <label for="review">Review:</label>
     <textarea id="review" placeholder="Anything" v-model="review"></textarea>
 
-    <!-- <label for="rating">Rating:</label>
-    <select id="rating" v-model.number="rating">
-      <option>5</option>
-      <option>4</option>
-      <option>3</option>
-      <option>2</option>
-      <option>1</option>
-    </select> -->
-    <base-select :options="rates" v-model="rating" label="Rating" />
+    <BaseSelect :options="rates" v-model="rating" label="Rating" />
 
-    <!-- solution -->
-    <!-- <label for="recommend">Would you recommend this product?</label>
-    <select id="recommend" v-model="recommend">
-      <option>Yes</option>
-      <option>No</option>
-    </select> -->
     <BaseSelect
       :options="recommends"
       v-model="recommend"
       label="Would you recommend this product?"
     />
 
-    <!-- solution -->
-    <!-- <input class="button" type="submit" value="Submit" /> -->
     <BaseInput v-model="Submit" label="Submit" type="submit" />
-
-    <!-- other extra base -->
-    <h3>Extras</h3>
-    <div>
-      <BaseCheckbox
-        v-model="event.extras.catering"
-        label="Catering"
-      ></BaseCheckbox>
-    </div>
-    <div>
-      <BaseCheckbox
-        v-model="event.extras.music"
-        label="Live Music"
-      ></BaseCheckbox>
-    </div>
-
-    <h3>Are Pets allowed ?</h3>
-    <div>
-      <BaseRadioGroup
-        v-model="event.pets"
-        name="pets"
-        :options="petOptions"
-        vertical
-      ></BaseRadioGroup>
-    </div>
   </form>
+  <section>
+    <!-- other extra base -->
+    <fieldset>
+      <legend>Extras</legend>
+      <div>
+        <BaseCheckbox
+          v-model="event.extras.catering"
+          label="Catering"
+        ></BaseCheckbox>
+      </div>
+      <div>
+        <BaseCheckbox
+          v-model="event.extras.music"
+          label="Live Music"
+        ></BaseCheckbox>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Are Pets allowed ?</legend>
+      <div>
+        <BaseRadioGroup
+          v-model="event.pets"
+          name="pets"
+          :options="petOptions"
+          vertical
+        ></BaseRadioGroup>
+      </div>
+    </fieldset>
+  </section>
 </template>
 
 <script>
@@ -130,4 +121,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+section {
+  width: 60%;
+}
+</style>
