@@ -44,6 +44,7 @@ import ReviewList from "./ReviewList.vue";
 // import BaseVeeInput from "./BaseVeeInput.vue";
 export default {
   name: "Socks",
+  emits: ["add-to-cart"],
   components: {
     ReviewForm,
     ReviewList,

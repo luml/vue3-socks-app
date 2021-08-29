@@ -55,6 +55,7 @@
 
 <script>
 export default {
+  emits: ["review-submitted"],
   data() {
     return {
       name: "",
